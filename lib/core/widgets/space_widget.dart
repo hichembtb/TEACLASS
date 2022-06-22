@@ -4,7 +4,7 @@ import '../utils/size_config.dart';
 class HorizintalSpace extends StatelessWidget {
   final double? value;
 
-  const HorizintalSpace(this.value);
+   const HorizintalSpace(this.value);
   @override
   Widget build(BuildContext context) {
     return SizedBox(

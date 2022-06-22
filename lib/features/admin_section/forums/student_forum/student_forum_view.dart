@@ -7,6 +7,6 @@ class StudentForumView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  StudentForumBody();
+    return const StudentForumBody();
   }
 }

@@ -94,14 +94,14 @@ class _StudentProfileViewBodyState extends State<StudentProfileViewBody> {
             ),
             const VerticalSpace(5),
             StudentForumItem(
-              text: 'test 1 ',
+              labelText: 'test 1 ',
               obscureText: false,
               inputType: TextInputType.number,
               controller: test1Controller,
             ),
             const VerticalSpace(2),
             StudentForumItem(
-              text: 'test 2 ',
+              labelText: 'test 2 ',
               obscureText: false,
               inputType: TextInputType.number,
               controller: test2Controller,

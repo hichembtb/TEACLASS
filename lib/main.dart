@@ -7,6 +7,8 @@ import 'package:univ_app/features/auth/presentation/manager/auth_service.dart';
 import 'package:univ_app/features/auth/presentation/manager/data_manager.dart';
 import 'package:flutter/services.dart';
 
+
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -42,11 +44,3 @@ class UnivApp extends StatelessWidget {
     );
   }
 }
-
-
-/*
-TODO teacher auth , admin auth 
-TODO get students list from collection (groups) using teacher uid 
-TODO show previous students list in view attendance 
-
-*/

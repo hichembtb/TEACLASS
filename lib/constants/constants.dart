@@ -10,3 +10,4 @@ const kStudents = 'assets/images/students.jpg';
 const kTeachers = 'assets/images/teachers.jpg';
 const kTimtable = 'assets/images/timtable.jpg';
 const kTeacherProfile = 'assets/images/teacher_profile.png';
+const kSplash = 'assets/images/splash.png';

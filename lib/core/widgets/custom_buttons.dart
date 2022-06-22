@@ -23,8 +23,19 @@ class CustomGeneralButton extends StatelessWidget {
         height: height ?? 60,
         width: width ?? SizeConfig.screenWidth,
         decoration: BoxDecoration(
-          color: kMainColor,
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(12),
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [kDashboardColor, kDashboardColor.withOpacity(0.5)],
+          ),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black12,
+              offset: Offset(5, 5),
+              blurRadius: 10,
+            )
+          ],
         ),
         child: Center(
           child: Text(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:univ_app/features/auth/presentation/pages/admin_login/admin_login_view.dart';
 import '../../../../../../constants/constants.dart';
 import '../../../../../../core/utils/size_config.dart';
@@ -42,11 +43,7 @@ class LoginViewBody extends StatelessWidget {
                 color: const Color(0xFFdb3236),
                 iconData: FontAwesomeIcons.adn,
                 onTap: () async {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => const AdminLoginView(),
-                    ),
-                  );
+                  Get.off(const AdminLoginView());
                 },
               ),
             ),
@@ -58,12 +55,7 @@ class LoginViewBody extends StatelessWidget {
                 color: const Color(0xFF4267B2),
                 iconData: FontAwesomeIcons.chalkboardUser,
                 onTap: () async {
-                  // await AuthReposImplem().loginWithFacebook();
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => const TeacherLoginView(),
-                    ),
-                  );
+                  Get.off(const TeacherLoginView());
                 },
               ),
             ),

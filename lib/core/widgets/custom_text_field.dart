@@ -9,6 +9,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextEditingController? controller;
   final bool obscureText;
+  final String labelText;
   const CustomTextFormField({
     Key? key,
     @required this.inputType,
@@ -19,6 +20,7 @@ class CustomTextFormField extends StatelessWidget {
     this.validator,
     this.controller,
     required this.obscureText,
+    required this.labelText,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -31,13 +33,18 @@ class CustomTextFormField extends StatelessWidget {
       onSaved: onSaved,
       maxLines: maxLines,
       decoration: InputDecoration(
-        filled: true,
-        fillColor: Colors.transparent,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(
-            color: Color(0xFFCCCCCC),
-          ),
+        labelText: labelText,
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black.withOpacity(0.8)),
+        ),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black.withOpacity(0.8)),
+        ),
+        border: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black.withOpacity(0.8)),
+        ),
+        labelStyle: TextStyle(
+          color: Colors.black.withOpacity(0.8),
         ),
       ),
     );

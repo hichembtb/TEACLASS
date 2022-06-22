@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:univ_app/constants/constants.dart';
 import 'package:univ_app/core/models/student_model.dart';
 import 'package:univ_app/core/widgets/space_widget.dart';
@@ -66,7 +67,7 @@ class _StudentForumBodyState extends State<StudentForumBody> {
               {'students_list': FieldValue.arrayUnion(studentDocToAdd)});
         }
 
-        Navigator.pop(context);
+        Get.back();
       }
     }
   }
@@ -99,8 +100,9 @@ class _StudentForumBodyState extends State<StudentForumBody> {
               children: [
                 const VerticalSpace(2),
                 StudentForumItem(
+                  labelText: 'id',
                   obscureText: false,
-                  text: 'id',
+                
                   inputType: TextInputType.number,
                   onSaved: (value) {
                     id = int.parse(value);
@@ -114,8 +116,9 @@ class _StudentForumBodyState extends State<StudentForumBody> {
                 ),
                 const VerticalSpace(2),
                 StudentForumItem(
+                  labelText: 'nom',
                   obscureText: false,
-                  text: 'nom',
+                  
                   inputType: TextInputType.name,
                   onSaved: (value) {
                     name = value;
@@ -129,8 +132,9 @@ class _StudentForumBodyState extends State<StudentForumBody> {
                 ),
                 const VerticalSpace(2),
                 StudentForumItem(
+                  labelText: 'prenom',
                   obscureText: false,
-                  text: 'prenom',
+                 
                   inputType: TextInputType.name,
                   onSaved: (value) {
                     surname = value;
@@ -144,8 +148,9 @@ class _StudentForumBodyState extends State<StudentForumBody> {
                 ),
                 const VerticalSpace(2),
                 StudentForumItem(
+                  labelText: 'date de naissance',
                   obscureText: false,
-                  text: 'date de naissance',
+                 
                   inputType: TextInputType.datetime,
                   onSaved: (value) {
                     birthday = value;
@@ -159,8 +164,9 @@ class _StudentForumBodyState extends State<StudentForumBody> {
                 ),
                 const VerticalSpace(2),
                 StudentForumItem(
+                  labelText: 'Adresse',
                   obscureText: false,
-                  text: 'Adresse',
+               
                   inputType: TextInputType.emailAddress,
                   onSaved: (value) {
                     adresse = value;
@@ -175,8 +181,9 @@ class _StudentForumBodyState extends State<StudentForumBody> {
                 const VerticalSpace(2),
                 const VerticalSpace(2),
                 StudentForumItem(
+                  labelText: 'groupe',
                   obscureText: false,
-                  text: 'groupe',
+              
                   inputType: TextInputType.number,
                   onSaved: (value) {
                     group = 'groupe$value';

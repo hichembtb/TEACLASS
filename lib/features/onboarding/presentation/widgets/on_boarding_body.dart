@@ -81,7 +81,7 @@ class _OnBoardinViewBodyState extends State<OnBoardinViewBody> {
       pageController?.nextPage(
           duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
     } else {
-      Get.to(
+      Get.off(
         () => const LoginView(),
         transition: Transition.rightToLeft,
         duration: const Duration(milliseconds: 500),

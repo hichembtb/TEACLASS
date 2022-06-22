@@ -2,16 +2,16 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:univ_app/features/auth/presentation/manager/auth_service.dart';
-import 'package:univ_app/features/dashboards/admin_dashboard/admin_dashboard_view.dart';
-import '../../../../../../constants/constants.dart';
-import '../../../../../../core/utils/size_config.dart';
-import '../../../../../../core/widgets/custom_buttons.dart';
-import '../../../../../../core/widgets/space_widget.dart';
-import 'admin_login_item.dart';
+import 'package:univ_app/constants/constants.dart';
+import 'package:univ_app/core/utils/size_config.dart';
+import 'package:univ_app/core/widgets/custom_buttons.dart';
+import 'package:univ_app/core/widgets/space_widget.dart';
+import '../../../manager/auth_service.dart';
+import 'teacher_login_item.dart';
+import '../../../../../dashboards/teacher_dashboard/teacher_dashboard_view.dart';
 
-class AdminLoginBody extends StatelessWidget {
-  const AdminLoginBody({Key? key}) : super(key: key);
+class TeacherLoginBody extends StatelessWidget {
+  const TeacherLoginBody({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
@@ -32,27 +32,57 @@ class AdminLoginBody extends StatelessWidget {
         ),
         child: Column(
           children: [
+            Stack(
+              alignment: Alignment.bottomLeft,
+              children: [
+                SizedBox(
+                  height: SizeConfig.screenHeight! * 0.45,
+                  child: Image.asset(kSplash),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Hi Teacher",
+                        style: TextStyle(
+                          fontSize: SizeConfig.defaultSize! * 3.5,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        "Log in to Continue",
+                        style: TextStyle(
+                          fontSize: SizeConfig.defaultSize! * 2,
+                          color: Colors.white.withOpacity(0.9),
+                          fontWeight: FontWeight.w300,
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
             Expanded(
-              flex: 3,
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(38),
-                    bottomLeft: Radius.circular(38),
+                    topRight: Radius.circular(38),
+                    topLeft: Radius.circular(38),
                   ),
                 ),
                 child: ListView(
                   children: [
-                    const VerticalSpace(10),
-                    AdminLoginItem(
+                    TeacherLoginItem(
                       controller: emailController,
                       obscureText: false,
                       labelText: 'email',
                     ),
                     const VerticalSpace(2),
-                    AdminLoginItem(
+                    TeacherLoginItem(
                       maxLines: 1,
                       controller: passwordController,
                       obscureText: true,
@@ -62,20 +92,20 @@ class AdminLoginBody extends StatelessWidget {
                     CustomGeneralButton(
                       text: 'Login',
                       onTap: () async {
-                        if (emailController.text == 'admin@mail.com') {
-                          var admin = await authService.logInEmailPassword(
+                        if (emailController.text != 'admin@mail.com') {
+                          var teacher = await authService.logInEmailPassword(
                             context,
                             emailController.text,
                             passwordController.text,
                           );
-                          admin != null
-                              ? Get.offAll(const AdminDashboardView())
+                          teacher != null
+                              ? Get.offAll(const TeacherDashboardView())
                               : null;
                         } else {
                           AwesomeDialog(
                             context: context,
                             title: "Error",
-                            desc: 'you are not an Admin ',
+                            desc: 'Admin cant access teacher Section',
                           ).show();
                         }
                       },
@@ -83,39 +113,6 @@ class AdminLoginBody extends StatelessWidget {
                     const VerticalSpace(2),
                   ],
                 ),
-              ),
-            ),
-            Expanded(
-              child: Stack(
-                alignment: Alignment.topLeft,
-                children: [
-                  SizedBox(
-                    height: SizeConfig.screenHeight! * 0.45,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      children: [
-                        Text(
-                          "Admin",
-                          style: TextStyle(
-                            fontSize: SizeConfig.defaultSize! * 3.5,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Text(
-                          "Log in to Continue",
-                          style: TextStyle(
-                            fontSize: SizeConfig.defaultSize! * 2,
-                            color: Colors.white.withOpacity(0.9),
-                            fontWeight: FontWeight.w300,
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
               ),
             ),
           ],

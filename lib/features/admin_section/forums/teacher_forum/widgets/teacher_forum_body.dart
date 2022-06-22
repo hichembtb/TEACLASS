@@ -118,8 +118,8 @@ class _TeacherForumBodyState extends State<TeacherForumBody> {
               children: [
                 const VerticalSpace(2),
                 TeacherForumItem(
+                  labelText: 'id',
                   obscureText: false,
-                  text: 'id',
                   inputType: TextInputType.number,
                   onSaved: (value) {
                     id = value;
@@ -133,8 +133,8 @@ class _TeacherForumBodyState extends State<TeacherForumBody> {
                 ),
                 const VerticalSpace(2),
                 TeacherForumItem(
+                  labelText: 'nom',
                   obscureText: false,
-                  text: 'nom',
                   inputType: TextInputType.name,
                   onSaved: (value) {
                     name = value;
@@ -148,8 +148,8 @@ class _TeacherForumBodyState extends State<TeacherForumBody> {
                 ),
                 const VerticalSpace(2),
                 TeacherForumItem(
+                  labelText: 'prenom',
                   obscureText: false,
-                  text: 'prenom',
                   inputType: TextInputType.name,
                   onSaved: (value) {
                     surname = value;
@@ -162,8 +162,8 @@ class _TeacherForumBodyState extends State<TeacherForumBody> {
                   },
                 ),
                 TeacherForumItem(
+                  labelText: 'email',
                   obscureText: false,
-                  text: 'email',
                   inputType: TextInputType.name,
                   controller: emailController,
                   validator: (value) {
@@ -174,8 +174,8 @@ class _TeacherForumBodyState extends State<TeacherForumBody> {
                   },
                 ),
                 TeacherForumItem(
+                  labelText: 'password',
                   obscureText: false,
-                  text: 'password',
                   inputType: TextInputType.name,
                   controller: passwordController,
                   validator: (value) {
@@ -186,6 +186,7 @@ class _TeacherForumBodyState extends State<TeacherForumBody> {
                   },
                 ),
                 const VerticalSpace(2),
+                const Divider(),
                 buildCheckBox(),
               ],
             ),
@@ -197,22 +198,9 @@ class _TeacherForumBodyState extends State<TeacherForumBody> {
 
   Widget buildCheckBox() {
     return SizedBox(
-      child: Column(
+      child: ListView(
+        shrinkWrap: true,
         children: [
-          ListTile(
-            leading: Checkbox(
-              value: allChecked.value,
-              onChanged: (value) => onAllClicked(allChecked),
-            ),
-            title: Text(
-              allChecked.title!,
-              style: const TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          const Divider(),
           ...checkBoxList.map(
             (item) => ListTile(
               leading: Checkbox(

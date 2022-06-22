@@ -1,7 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:get/get.dart';
+
+import '../../../../constants/constants.dart';
+import '../../../../core/utils/size_config.dart';
 
 class TeacherTimeTableViewBody extends StatefulWidget {
   const TeacherTimeTableViewBody({Key? key}) : super(key: key);
@@ -23,6 +26,17 @@ class _TeacherTimeTableViewBodyState extends State<TeacherTimeTableViewBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kDashboardColor,
+        toolbarHeight: SizeConfig.screenHeight! * 0.07,
+        centerTitle: true,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.elliptical(
+              SizeConfig.screenWidth!,
+              40.0,
+            ),
+          ),
+        ),
         title: const Text('Time Tables List'),
       ),
       body: SafeArea(
@@ -68,10 +82,11 @@ class _TeacherTimeTableViewBodyState extends State<TeacherTimeTableViewBody> {
 
     await Dio().download(url, path);
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Download ${ref.name}'),
-      ),
+    GetSnackBar snackbar = GetSnackBar(
+      messageText: Text('Download ${ref.name}'),
+      backgroundColor: kDashboardColor,
+      duration: const Duration(seconds: 3),
     );
+    Get.showSnackbar(snackbar);
   }
 }

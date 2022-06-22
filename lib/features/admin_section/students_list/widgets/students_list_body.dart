@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:univ_app/constants/constants.dart';
 import 'package:univ_app/core/utils/size_config.dart';
 import 'package:univ_app/core/utils/student_list_data.dart';
-import 'package:univ_app/core/widgets/branche_dropdown.dart';
-import 'package:univ_app/core/widgets/groupes_dropdown.dart';
-import 'package:univ_app/core/widgets/parcour_dropdown.dart';
 import '../../../../core/widgets/space_widget.dart';
 import '../../forums/student_forum/student_forum_view.dart';
 

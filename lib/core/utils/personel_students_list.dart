@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:univ_app/core/widgets/filiers_dropdown.dart';
 import 'package:univ_app/core/widgets/groupes_dropdown.dart';
-import 'package:univ_app/core/widgets/parcour_dropdown.dart';
 import 'package:univ_app/core/widgets/space_widget.dart';
 import '../models/student_model.dart';
 import 'size_config.dart';
@@ -159,12 +158,6 @@ class _StudentListDataState extends State<PersonelStudentList> {
                           padding: EdgeInsets.all(8.0),
                           child: SizedBox(
                             child: FilierDropDown(),
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: SizedBox(
-                            child: ParcourDropDown(),
                           ),
                         ),
                         Padding(

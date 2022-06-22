@@ -5,37 +5,26 @@ import '../../../../../../core/widgets/space_widget.dart';
 class TeacherLoginItem extends StatelessWidget {
   const TeacherLoginItem({
     Key? key,
-    required this.text,
     this.inputType,
     this.maxLines,
     required this.obscureText,
     this.controller,
+    required this.labelText,
   }) : super(key: key);
-  final String text;
+
   final TextInputType? inputType;
   final int? maxLines;
   final bool obscureText;
   final TextEditingController? controller;
+  final String labelText;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          text,
-          style: const TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 16,
-            color: Color(0xff0c0b0b),
-            fontWeight: FontWeight.w600,
-            height: 1.5625,
-          ),
-          textHeightBehavior:
-              const TextHeightBehavior(applyHeightToFirstAscent: false),
-          textAlign: TextAlign.center,
-        ),
         const VerticalSpace(2),
         CustomTextFormField(
+          labelText: labelText,
           obscureText: obscureText,
           maxLines: maxLines,
           inputType: inputType,
