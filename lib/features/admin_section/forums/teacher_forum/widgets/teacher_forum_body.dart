@@ -17,7 +17,6 @@ class TeacherForumBody extends StatefulWidget {
 }
 
 class _TeacherForumBodyState extends State<TeacherForumBody> {
-  final allChecked = CheckBoxModel(title: 'All Groups', value: false);
   List checkBoxList = [];
   List selectedGroups = [];
   createGroupsCheck() {
